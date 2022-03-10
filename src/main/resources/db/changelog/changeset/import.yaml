@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: import
+      author: Olga
+      changes:
+        - sqlFile:
+            path: classpath:db/changelog/changeset/data.sql

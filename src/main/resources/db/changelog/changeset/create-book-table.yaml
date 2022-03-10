@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-book
+      author: Olga
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: author_book_fk
+                    referencedTableName: author
+                    referencedColumnNames: id
