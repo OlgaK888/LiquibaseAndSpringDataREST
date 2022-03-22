@@ -1,6 +1,6 @@
 spring:
 #  liquibase:
-#    enabled: false
+#    enabled: true
 #  datasource:
 #    url: jdbc:h2:file:./db
 #    username: u
@@ -11,21 +11,59 @@ spring:
 #      ddl-auto: none
 #  h2:
 #    console:
-#      enabled: false
+#      enabled: true
 
-  liquibase:
-    enabled: true
+#  liquibase:
+#    enabled: true
+#  jpa:
+#    database: postgresql
+#    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+#    hibernate:
+#      ddl-auto: none
+#  datasource:
+#    url: jdbc:postgresql://projectDB:5432/projectdb
+#    driver-class-name: org.postgresql.Driver
+#    username: postgres
+#    password: postgres
+#    sql:
+#      init:
+#        mode: always
+#        data-locations: classpath*:data.sql
+
+#  flyway:
+#    user: u
+#    password: 1
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:file:./db
+#    baseline-on-migrate: true
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#    show-sql: true
+#    database-platform:  org.hibernate.dialect.H2Dialect
+#  datasource:
+#    url: jdbc:h2:file:./db
+#    driver-class-name: org.h2.Driver
+#    username: u
+#    password: 1
+#  h2 :
+#    console:
+#      enabled: true
+
+  flyway:
+    user: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://projectDB:5432/projectdb
+    baseline-on-migrate: true
   jpa:
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
     hibernate:
       ddl-auto: none
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
   datasource:
     url: jdbc:postgresql://projectDB:5432/projectdb
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres
-    sql:
-      init:
-        mode: always
-        data-locations: classpath*:data.sql

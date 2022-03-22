@@ -15,8 +15,8 @@ services:
     image: postgres:13.2
     env_file:
       - ./ProjectDb/database.env
+    ports:
+      - "5433:5432"
     volumes:
       - ./ProjectDb/data.sql:/docker-entrypoint-initdb.d/data.sql
       - ./ProjectDb/data:/var/lib/postgresql/data/
-    ports:
-      - "5433:5432"
