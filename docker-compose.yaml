@@ -11,10 +11,11 @@ services:
       - "8080:8080"
 
   projectDB:
-    container_name: database
+#    container_name: database
+    hostname: projectDB
     image: postgres:13.2
     env_file:
-      - ./ProjectDb/database.env
+      - ProjectDb/database.env
     volumes:
       - ./ProjectDb/data.sql:/docker-entrypoint-initdb.d/data.sql
       - ./ProjectDb/data:/var/lib/postgresql/data/
