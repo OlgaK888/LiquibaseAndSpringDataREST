@@ -1,14 +1,32 @@
 spring:
+#  liquibase:
+#    enabled: true
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      ddl-auto: none
+#  datasource:
+#    url: jdbc:h2:file:./db
+#    username: u
+#    password: 1
+#  h2:
+#    console:
+#      enabled: true
+
   liquibase:
     enabled: true
-  datasource:
-    url: jdbc:h2:file:./db
-    username: u
-    password: 1
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
     hibernate:
-      ddl-auto: validate
-  h2:
-    console:
-      enabled: true
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://projectDB:5432/projectdb
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    sql:
+      init:
+        mode: always
+        data-locations: classpath*:data.sql
+

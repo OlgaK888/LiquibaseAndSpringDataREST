@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  liquibase:
+    container_name: liquibase
+    build: .
+    image: liquibase
+    depends_on:
+      - projectDB
+    ports:
+      - "8080:8080"
+
+  projectDB:
+#    container_name: database
+    hostname: projectDB
+    image: postgres:13.2
+    env_file:
+      - ProjectDb/database.env
+    volumes:
+      - ./ProjectDb/data.sql:/docker-entrypoint-initdb.d/data.sql
+      - ./ProjectDb/data:/var/lib/postgresql/data/
+    ports:
+      - "5433:5432"
